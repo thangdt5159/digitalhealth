@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const Section5 = () => {
   const data = [
@@ -42,43 +42,87 @@ const Section5 = () => {
   const [expand, setExpand] = useState<boolean>(false);
   const [active, setActive] = useState(0);
 
-  console.log(active);
+  const t1Ref = useRef<any>(null);
+  const t2Ref = useRef<any>(null);
+
+  const [t1InView, setT1InView] = useState<boolean>();
+  const [t2InView, setT2InView] = useState<boolean>();
+
+  useEffect(() => {
+    const t1Observe = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      if (entry.isIntersecting) {
+        setT1InView(entry.isIntersecting);
+      }
+    });
+
+    const t2Observe = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      if (entry.isIntersecting) {
+        setT2InView(entry.isIntersecting);
+      }
+    });
+
+    t1Observe.observe(t1Ref.current);
+    t2Observe.observe(t2Ref.current);
+
+    return () => {
+      t1Observe.unobserve(t1Ref.current);
+      t2Observe.unobserve(t2Ref.current);
+    };
+  }, []);
 
   return (
     <section className="py-[6.6vmax]">
-      <div className="flex">
-        <div className="w-1/2 pr-[2%] text-end">
-          <h1 className="text-text text-[84px] leading-[84px]">CRYPTOHEALTH</h1>
-          <p className="text-secondaryColr text-[40px] leading-[40px] font-medium">
+      <div className="md:flex">
+        <div className="md:w-1/2 md:pr-[2%] md:text-end text-center">
+          <h1 className="text-text md:text-[84px] md:leading-[84px] text-[48px]">
+            CRYPTOHEALTH
+          </h1>
+          <p className="text-secondaryColr md:text-[40px] md:leading-[40px] text-[24px] font-medium">
             IS A SINGLE PAYMENT SOLUTION
           </p>
-          <div className="w-full h-[1px] bg-mainBg mb-7 mt-5"></div>
-          <p className="bg-[#fed5e0] text-black rounded-[16px] p-[6%] text-[28px] leading-[36px] text-start font-medium">
+          <div className="md:w-full w-[85%] h-[1px] bg-mainBg mb-7 mt-5"></div>
+          <p
+            className={`bg-[#fed5e0] text-black rounded-r-[16px] p-[6%] mr-[15%] md:mr-0 text-[28px] leading-[36px] text-start font-medium transition-all duration-1000 ${
+              t1InView ? "opacity-100" : "opacity-0"
+            }`}
+            ref={t1Ref}
+          >
             Invest, hold and claim. Reimburse and receive medical financial
             assistance as the need arises, as long as you HODL your tokens in
             the blockchain.
           </p>
         </div>
-        <div className="w-1/2 ml-[4%] pl-[1%] pr-[10%]">
-          <p className="text-[24px] text-text font-medium mb-7">
+        <div className="md:w-1/2 ml-[4%] pl-[1%] pr-[10%]">
+          <p className="text-[24px] text-text font-medium mb-7 mt-10 md:mt-0">
             The amount of claims you can receive from your CryptoHealth Crypto
             Medical Insurance policy is determined by the following limitations
             that were made to ensure sustainability of the Reimbursement Pool:
           </p>
-          <div>
+          <div
+            className={`transition-all duration-1000 ${
+              t2InView ? "opacity-100" : "opacity-0"
+            }`}
+            ref={t2Ref}
+          >
             {data.map((item) => (
               <div
-                className="relative last-of-type:border-b last-of-type:border-text cursor-pointer"
+                className="relative last-of-type:border-b last-of-type:border-text cursor-pointer overflow-hidden"
                 onClick={() => {
-                  setExpand(!expand);
+                  if (item.id !== active) {
+                    setExpand(true);
+                  } else {
+                    setExpand(!expand);
+                  }
                   setActive(item.id);
                 }}
               >
                 <div
                   key={item.id}
-                  className="relative py-[15px] text-text font-medium border-t border-text transition-al duration-500"
+                  className="relative pt-[15px] text-text font-medium border-t border-text transition-al duration-500"
                 >
-                  <div className="relative mb-4 font-semibold">
+                  <div className="relative mb-4 font-semibold pr-6 md:pr-0">
                     {item.title}
                     <div className="absolute right-0 top-[40%] w-[14px] h-[14px]">
                       <div
@@ -91,31 +135,36 @@ const Section5 = () => {
                       <div className="bg-text w-[14px] h-[1px] absolute right-0 top-1/2"></div>
                     </div>
                   </div>
-
                   <div
-                    className={`text-[12px] transition-all duration-500 ${
-                      expand && active === item.id
-                        ? "opacity-100 block"
-                        : "opacity-0 hidden"
+                    className={`text-[12px] transition-all duration-300 font-normal md:font-medium ${
+                      expand && active === item.id && item.des1 && !item.des2
+                        ? "md:h-[80px] h-[120px]"
+                        : expand &&
+                          active === item.id &&
+                          item.des2 &&
+                          !item.des3
+                        ? "md:h-[130px] h-[190px]"
+                        : expand && active === item.id && item.des3
+                        ? "md:h-[200px] h-[350px]"
+                        : "h-0"
                     }`}
                   >
-                    {item.des1}
+                    <div>{item.des1}</div>
+                    <div
+                      className={`${
+                        expand && active === item.id && "pt-[15px]"
+                      }`}
+                    >
+                      {item.des2}
+                    </div>
+                    <div
+                      className={`${
+                        expand && active === item.id && "pt-[15px]"
+                      }`}
+                    >
+                      {item.des3}
+                    </div>
                   </div>
-
-                  {/* <div
-                    className={`text-[12px] ${
-                      expand ? "opacity-100 block" : "opacity-0 hidden"
-                    }`}
-                  >
-                    {item.des2}
-                  </div>
-                  <div
-                    className={`text-[12px] ${
-                      expand ? "opacity-100 block" : "opacity-0 hidden"
-                    }`}
-                  >
-                    {item.des3}
-                  </div> */}
                 </div>
               </div>
             ))}

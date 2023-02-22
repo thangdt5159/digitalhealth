@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const Section6 = () => {
   const data = [
@@ -41,15 +41,55 @@ const Section6 = () => {
     },
   ];
 
+  const t1Ref = useRef<any>(null);
+  const img2Ref = useRef<any>(null);
+
+  const [t1InView, setT1Inview] = useState<boolean>();
+  const [img2InView, setImg2Inview] = useState<boolean>();
+
+  useEffect(() => {
+    const t1Observe = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      if (entry.isIntersecting) {
+        setT1Inview(entry.isIntersecting);
+      }
+    });
+
+    const img2Observe = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      if (entry.isIntersecting) {
+        setImg2Inview(entry.isIntersecting);
+      }
+    });
+
+    t1Observe.observe(t1Ref.current);
+    img2Observe.observe(img2Ref.current);
+
+    return () => {
+      t1Observe.unobserve(t1Ref.current);
+      img2Observe.unobserve(img2Ref.current);
+    };
+  }, []);
+
   return (
     <section className="py-[3.3vmax] bg-[#ef3770]">
       <div className="w-[80%] mx-auto text-white text-center">
-        <div className="pb-[70px] text-[32px] font-medium">
+        <div
+          className={`pb-[70px] text-[32px] font-medium transition-all duration-1000 ${
+            t1InView ? "opacity-100" : "opacity-0"
+          }`}
+          ref={t1Ref}
+        >
           Future Utilities for Development
         </div>
-        <div className="flex flex-wrap text-center">
+        <div
+          className={`md:flex flex-wrap text-center transition-all duration-1000 ${
+            img2InView ? "opacity-100" : "opacity-0"
+          }`}
+          ref={img2Ref}
+        >
           {data.map((item) => (
-            <div key={item.id} className="w-1/3 text-[#ffffff] mb-8">
+            <div key={item.id} className="md:w-1/3 text-[#ffffff] mb-8">
               <Image
                 src={item.image}
                 alt=""
@@ -57,10 +97,10 @@ const Section6 = () => {
                 height={150}
                 className="mx-auto mb-[8%]"
               />
-              <h3 className="text-[20px] w-3/4 mx-auto font-medium text-[#ffffffbd]">
+              <h3 className="text-[20px] md:w-3/4 mx-auto font-medium text-[#ffffffbd]">
                 {item.title}
               </h3>
-              <p className="w-3/4 mx-auto text-[12px] mt-[4%]">{item.des}</p>
+              <p className="md:w-3/4 mx-auto text-[12px] mt-[4%]">{item.des}</p>
             </div>
           ))}
         </div>

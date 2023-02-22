@@ -2,3 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+li {
+  margin-bottom: 8px;
+}
+
+li p {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
