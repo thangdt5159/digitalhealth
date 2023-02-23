@@ -2,8 +2,8 @@ import React from "react";
 
 const Section8 = () => {
   return (
-    <section className="bg-[#fed5e0] py-[3.3vmax]">
-      <div className="w-[60%] mx-auto text-center text-text text-[26px] mb-[80px]">
+    <section className="bg-[#fed5e0] md:py-[3.3vmax] py-[70px]">
+      <div className="md:w-[60%] w-[90%] mx-auto text-center text-text md:text-[26px] text-[24px] md:mb-[80px]">
         A project that aims for long term development by forming{" "}
         <span className="font-bold text-[#ef476d]">
           meaningful partnerships

@@ -36,18 +36,18 @@ const Roadmap = () => {
 
   return (
     <section>
-      <div className="w-[63%] py-[3.3vmax] text-text font-medium mx-auto">
+      <div className="md:w-[63%] w-[90%] md:py-[3.3vmax] py-[50px] text-text font-medium mx-auto">
         <h1
-          className={`text-[88px] transition-all duration-1000 ${
+          className={`md:text-[88px] text-[28px] text-center md:text-inherit transition-all duration-1000 ${
             t1InView ? "opacity-100" : "opacity-0"
           }`}
           ref={t1Ref}
         >
           OUR ROADMAP TO SUCCESS
         </h1>
-        <div className="h-[1px] w-full bg-text mt-10"></div>
+        <div className="h-[1px] w-full bg-text md:mt-10 mt-[50px]"></div>
         <p
-          className={`w-[80%] mx-auto text-[18px] text-black text-center py-10 transition-all duration-1000 ${
+          className={`md:w-[80%] mx-auto text-[18px] text-black font-normal scale-y-[1.05] md:scale-y-100 md:font-medium text-center py-10 transition-all duration-1000 ${
             t1InView ? "opacity-100" : "opacity-0"
           }`}
         >
@@ -85,11 +85,11 @@ const Roadmap = () => {
           </h3>
           <div
             className={`overflow-hidden transition-all duration-300 ${
-              expand && active === 1 ? "h-[310px]" : "h-0"
+              expand && active === 1 ? "md:h-[310px] h-[600px]" : "h-0"
             }`}
           >
-            <ol className="w-[62%] mx-auto text-[12px] font-normal list-decimal">
-              <li className="mb-2 mt-5">
+            <ol className="md:w-[62%] w-[80%] scale-y-[1.1] md:scale-y-100 mx-auto text-[12px] font-normal list-decimal">
+              <li className="mb-2 md:mt-5 mt-10">
                 Launch a safe BEP-20 token (CHT), fully doxxed, and with burned
                 liquidity
               </li>
@@ -157,10 +157,10 @@ const Roadmap = () => {
           </h3>
           <div
             className={`overflow-hidden transition-all duration-300 ${
-              expand && active === 2 ? "h-[610px]" : "h-0"
+              expand && active === 2 ? "md:h-[610px] h-[1160px]" : "h-0"
             }`}
           >
-            <ol className="w-[62%] mx-auto py-5 text-[12px] font-normal list-decimal">
+            <ol className="md:w-[62%] w-[80%] scale-y-[1.1] md:scale-y-100 mx-auto md:py-5 py-[70px] text-[12px] font-normal list-decimal">
               <li>
                 Release a family of Baby Tokens that are aimed to improve user
                 benefits, encourage long term hodling, act as other vehicles of
@@ -258,10 +258,10 @@ const Roadmap = () => {
           </h3>
           <div
             className={`overflow-hidden transition-all duration-300 ${
-              expand && active === 3 ? "h-[420px]" : "h-0"
+              expand && active === 3 ? "md:h-[420px] h-[830px]" : "h-0"
             }`}
           >
-            <ol className="w-[62%] mx-auto py-5 text-[12px] font-normal list-decimal">
+            <ol className="md:w-[62%] w-[80%] scale-y-[1.1] md:scale-y-100 mx-auto md:py-5 py-14 text-[12px] font-normal list-decimal">
               <li>
                 elease of our own Fiat-to-CHT exchange system, where the general
                 population can avail CryptoHealth tokens directly with fiat, and
@@ -315,7 +315,7 @@ const Roadmap = () => {
 
         {/* 4 */}
         <div
-          className={`relative border-t border-text py-5 cursor-pointer delay-500 transition-all duration-1000 ${
+          className={`relative border-t border-b border-text py-5 cursor-pointer delay-500 transition-all duration-1000 ${
             t2InView ? "opacity-100" : "opacity-0"
           }`}
           onClick={() => {
@@ -338,10 +338,10 @@ const Roadmap = () => {
           </h3>
           <div
             className={`overflow-hidden transition-all duration-300 ${
-              expand && active === 4 ? "h-[340px]" : "h-0"
+              expand && active === 4 ? "md:h-[340px] h-[700px]" : "h-0"
             }`}
           >
-            <ol className="w-[62%] mx-auto py-5 text-[12px] font-normal list-decimal">
+            <ol className="md:w-[62%] w-[80%] scale-y-[1.1] md:scale-y-100 mx-auto md:py-5 py-12 text-[12px] font-normal list-decimal">
               <li className="mb-2">
                 The long term vision (think more than 3 years) of CryptoHealth
                 is to establish a company that provides services in the form of

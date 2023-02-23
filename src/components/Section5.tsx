@@ -108,6 +108,7 @@ const Section5 = () => {
           >
             {data.map((item) => (
               <div
+                key={item.id}
                 className="relative last-of-type:border-b last-of-type:border-text cursor-pointer overflow-hidden"
                 onClick={() => {
                   if (item.id !== active) {

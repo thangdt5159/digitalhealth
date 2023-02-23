@@ -3,7 +3,7 @@ import React from "react";
 const Section9 = () => {
   return (
     <section className="bg-btmBg bg-no-repeat bg-cover bg-[50%_78%] h-[95vh] text-center">
-      <div className="w-[60%] mx-auto py-[6.6vmax] text-[#010101]">
+      <div className="md:w-[60%] w-[90%] mx-auto py-[6.6vmax] text-[#010101]">
         <div className="mb-14">
           <h1 className="text-[32px] font-medium mb-8">OUR MISSION</h1>
           <p className="text-[18px]">
