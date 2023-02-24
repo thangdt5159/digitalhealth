@@ -71,7 +71,7 @@ const AboutUs = () => {
         </button>
 
         <p className="mt-[60px] md:text-[12px] text-[14px] mb-10">
-          CryptoHealth © 2022 — admin@cryptoheath.life
+          DigitalHealth © 2023 — admin@digitalhealth.world
         </p>
 
         <div className="md:w-1/3 flex justify-center items-center gap-4 mx-auto md:text-[18px] text-[24px] mb-10">

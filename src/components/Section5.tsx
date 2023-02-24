@@ -155,16 +155,12 @@ const Section5 = () => {
                   >
                     <div>{item.des1}</div>
                     <div
-                      className={`${
-                        expand && active === item.id && "pt-[15px]"
-                      }`}
+                      className="pt-[15px] "
                     >
                       {item.des2}
                     </div>
                     <div
-                      className={`${
-                        expand && active === item.id && "pt-[15px]"
-                      }`}
+                      className="pt-[15px]"
                     >
                       {item.des3}
                     </div>
