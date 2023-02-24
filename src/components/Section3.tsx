@@ -42,12 +42,15 @@ const Section3 = () => {
       }
     });
 
+    const img1ObserveRef = img1Ref.current;
+    const img2ObserveRef = img2Ref.current;
+
     img1Observe.observe(img1Ref.current);
     img2Observe.observe(img2Ref.current);
 
     return () => {
-      img1Observe.unobserve(img1Ref.current);
-      img2Observe.unobserve(img2Ref.current);
+      img1Observe.unobserve(img1ObserveRef);
+      img2Observe.unobserve(img2ObserveRef);
     };
   }, []);
 

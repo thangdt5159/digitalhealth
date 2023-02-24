@@ -1,4 +1,4 @@
-import { Inter } from "@next/font/google";
+// import { Inter } from "@next/font/google";
 import AboutUs from "../components/AboutUs";
 import Landing from "../components/Landing";
 import Roadmap from "../components/Roadmap";
@@ -12,7 +12,7 @@ import Section7 from "../components/Section7";
 import Section8 from "../components/Section8";
 import Section9 from "../components/Section9";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (

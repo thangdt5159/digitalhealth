@@ -62,12 +62,15 @@ const Section6 = () => {
       }
     });
 
+    const t1ObserveRef = t1Ref.current;
+    const img2ObserveRef = img2Ref.current;
+
     t1Observe.observe(t1Ref.current);
     img2Observe.observe(img2Ref.current);
 
     return () => {
-      t1Observe.unobserve(t1Ref.current);
-      img2Observe.unobserve(img2Ref.current);
+      t1Observe.unobserve(t1ObserveRef);
+      img2Observe.unobserve(img2ObserveRef);
     };
   }, []);
 

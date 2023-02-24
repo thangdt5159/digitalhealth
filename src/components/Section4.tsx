@@ -44,12 +44,15 @@ const Section4 = () => {
       }
     });
 
+    const t1ObserveRef = t1Ref.current;
+    const img2ObserveRef = img2Ref.current;
+
     t1Observe.observe(t1Ref.current);
     img2Observe.observe(img2Ref.current);
 
     return () => {
-      t1Observe.unobserve(t1Ref.current);
-      img2Observe.unobserve(img2Ref.current);
+      t1Observe.unobserve(t1ObserveRef);
+      img2Observe.unobserve(img2ObserveRef);
     };
   }, []);
 
@@ -82,7 +85,9 @@ const Section4 = () => {
               <h3 className="text-[20px] md:w-3/4 mx-auto font-medium">
                 {item.title}
               </h3>
-              <p className="md:w-3/4 mx-auto text-[12px] md:mt-[4%] my-[4%]">{item.des}</p>
+              <p className="md:w-3/4 mx-auto text-[12px] md:mt-[4%] my-[4%]">
+                {item.des}
+              </p>
             </div>
           ))}
         </div>

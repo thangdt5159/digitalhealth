@@ -25,12 +25,15 @@ const Roadmap = () => {
       }
     });
 
+    const t1ObserveRef = t1Ref.current;
+    const t2ObserveRef = t2Ref.current;
+
     t1Observe.observe(t1Ref.current);
     t2Observe.observe(t2Ref.current);
 
     return () => {
-      t1Observe.unobserve(t1Ref.current);
-      t2Observe.unobserve(t2Ref.current);
+      t1Observe.unobserve(t1ObserveRef);
+      t2Observe.unobserve(t2ObserveRef);
     };
   }, []);
 
