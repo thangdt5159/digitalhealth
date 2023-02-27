@@ -16,7 +16,7 @@ import Section9 from "../components/Section9";
 
 export default function Home() {
   return (
-    <main>
+    <main className="main-content">
       <Landing />
       <Section1 />
       <Section2 />

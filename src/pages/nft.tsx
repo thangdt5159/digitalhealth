@@ -49,15 +49,15 @@ const Nft = () => {
 
   return (
     <>
-      <section className="bg-mainBg pt-[150px] pb-[130px] text-center text-white">
-        <div className="w-[80%] mx-auto">
-          <h1 className="text-[48px] uppercase font-medium mt-[120px]">
+      <section className="bg-mainBg pt-[50px] pb-[80px] md:pt-[150px] md:pb-[130px] text-center text-white">
+        <div className="md:w-[80%] w-[90%] mx-auto">
+          <h1 className="text-[42px] md:text-[48px] uppercase font-medium mt-[120px]">
             CryptoHealth
           </h1>
-          <h1 className="text-[48px] uppercase font-medium">
+          <h1 className="text-[40px] md:text-[48px] uppercase font-medium leading-[52px] mt-[12px] md:leading-normal md:mt-0">
             non fungible tokens
           </h1>
-          <p className="mt-10 scale-y-[1.3] tracking-wide">
+          <p className="md:mt-10 scale-y-[1.3] tracking-wide my-10">
             Our own line of limited NFTs with unique utilities that complement
             your experience
           </p>
@@ -71,12 +71,12 @@ const Nft = () => {
         </div>
       </section>
       <section>
-        <div className="w-[80%] mx-auto text-text text-center">
+        <div className="md:w-[80%] w-[90%] mx-auto text-text text-center">
           <div className="py-[3.3vmax]">
             <h2 className="text-[32px] my-6 font-medium">
               CRYPTOHEALTH SEED EDITION - 1
             </h2>
-            <p className="text-[18px] my-3 scale-y-110">
+            <p className="md:text-[18px] my-3 scale-y-110">
               The CryptoHealth Seed Edition - 1 NFT is a limited set of rotating
               NFT coins focusing on CryptoHealth’s utilities.
               <br />
@@ -87,9 +87,9 @@ const Nft = () => {
               available designs.
             </p>
           </div>
-          <div className="py-[3.3vmax] flex flex-wrap gap-y-[80px]">
+          <div className="py-[3.3vmax] md:flex flex-wrap gap-y-[80px]">
             {data.map((item) => (
-              <div key={item.id} className="w-1/3">
+              <div key={item.id} className="md:w-1/3 mb-[100px] md:mb-0">
                 <Image
                   src={item.image}
                   alt=""
