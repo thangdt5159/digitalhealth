@@ -1,5 +1,6 @@
 // import { Inter } from "@next/font/google";
 import AboutUs from "../components/AboutUs";
+import Banner from "../components/Banner";
 import Landing from "../components/Landing";
 import Roadmap from "../components/Roadmap";
 import Section1 from "../components/Section1";
@@ -24,6 +25,7 @@ export default function Home() {
       <Section4 />
       <Section5 />
       <Section6 />
+      <Banner />
       <Section7 />
       <Section8 />
       <Section9 />

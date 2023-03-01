@@ -122,10 +122,7 @@ const Section5 = () => {
                   setActive(item.id);
                 }}
               >
-                <div
-                  key={item.id}
-                  className="relative pt-[15px] text-text font-medium border-t border-text transition-al duration-500"
-                >
+                <div className="relative pt-[15px] text-text font-medium border-t border-text transition-al duration-500">
                   <div className="relative mb-4 font-semibold pr-6 md:pr-0">
                     {item.title}
                     <div className="absolute right-0 top-[40%] w-[14px] h-[14px]">
@@ -154,16 +151,8 @@ const Section5 = () => {
                     }`}
                   >
                     <div>{item.des1}</div>
-                    <div
-                      className="pt-[15px] "
-                    >
-                      {item.des2}
-                    </div>
-                    <div
-                      className="pt-[15px]"
-                    >
-                      {item.des3}
-                    </div>
+                    <div className="pt-[15px] ">{item.des2}</div>
+                    <div className="pt-[15px]">{item.des3}</div>
                   </div>
                 </div>
               </div>

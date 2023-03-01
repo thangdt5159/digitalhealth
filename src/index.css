@@ -21,3 +21,29 @@ li p {
 .main-content::-webkit-scrollbar {
   display: none;
 }
+
+.slide1 {
+  animation: slide1 60s -60s linear infinite;
+}
+
+.slide2 {
+  animation: slide2 60s -30s linear infinite;
+}
+
+@keyframes slide1 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slide2 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+}
